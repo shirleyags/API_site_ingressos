@@ -28,9 +28,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
-@SuppressWarnings("serial")
-public class Eventos extends AbstractEntity<Long> {
+public class Eventos{
 
+	
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL) 
 	@Id
@@ -41,7 +41,7 @@ public class Eventos extends AbstractEntity<Long> {
 	@Size(max=60, message="A casa não pdoe ter mais que 60 caracteres.")
 	private String evento;
 	
-	
+
 	@JsonInclude(JsonInclude.Include.NON_NULL) 
 	@NotNull(message="O preenchimento da capacidade é obrigatório.")
 	@DecimalMin(value="1", message="O capacidade não pode ser menor que 1")
@@ -74,6 +74,20 @@ public class Eventos extends AbstractEntity<Long> {
 	private Genero genero;
 	
 	
+	public Eventos() {}
+	
+	public Eventos(String evento) {
+		this.evento = evento;
+	}
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	
 	public String getEvento() {
@@ -124,6 +138,8 @@ public class Eventos extends AbstractEntity<Long> {
 	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
+	
+	
 
 	
 	

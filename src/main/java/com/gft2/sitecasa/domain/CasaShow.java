@@ -9,11 +9,13 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-@SuppressWarnings("serial")
+
 @Entity
-public class CasaShow extends AbstractEntity<Long> {
+public class CasaShow{
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	
 	@NotEmpty(message = "O nome da casa de show é obrigatório.")
@@ -41,6 +43,13 @@ public class CasaShow extends AbstractEntity<Long> {
 	@NotEmpty(message = "A abreviação do estado é obrigatória.")
 	@Size(max = 3, message = "A abreviação não pode conter mais de 3 caracteres.")
 	private String estado;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public List<Eventos> getListaEventos() {
 		return listaEventos;
