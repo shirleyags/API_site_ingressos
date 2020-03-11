@@ -8,6 +8,6 @@ import com.gft2.sitecasa.domain.CasaShow;
 
 public interface CasasRepository extends JpaRepository <CasaShow, Long> {
 	
-	public List<CasaShow> findByCasaContaining (String casa);
+	public List<CasaShow> findByCasaContaining(String casa);
 
 }

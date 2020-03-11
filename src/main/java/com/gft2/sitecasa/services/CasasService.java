@@ -59,7 +59,7 @@ public class CasasService {
 		try {
 			casasRepository.deleteById(id);
 		}catch(EmptyResultDataAccessException e){
-			throw new CasaDeShowNaoExistenteException("A casa de show não pôde ser encontrado!"); //Por que não é ao contrário??
+			throw new CasaDeShowNaoExistenteException("A casa de show não pôde ser encontrada!"); //Por que não é ao contrário??
 		}
 		
 	} 
@@ -84,8 +84,14 @@ public class CasasService {
 	
 	
 	public List<CasaShow> pesquisar(String casa){
-		return casasRepository.findByCasaContaining(casa);
+		List<CasaShow> listaCasa = casasRepository.findByCasaContaining(casa);
+		if(listaCasa.isEmpty()) {
+			throw new CasaDeShowNaoExistenteException("A casa de show não pôde ser encontrada!");
+		}
+		return listaCasa;
 	}
+
+
 	
 	
 	

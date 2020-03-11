@@ -55,7 +55,7 @@ public class ResourceExceptionHandler {
 		
 		DetalhesErro erro= new  DetalhesErro();
 		erro.setStatus(404l);
-		erro.setTitulo("Casa de Show não econtrada!");
+		erro.setTitulo("Casa de Show não encontrada!");
 		erro.setTimestamp(System.currentTimeMillis());
 		erro.setMensagemDesenvolvedor("http://erros.socialbooks.com/404");
 

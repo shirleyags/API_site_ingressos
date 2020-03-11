@@ -78,14 +78,10 @@ public class CasasResource {
 	}
 	
 	
-	@RequestMapping (value ="/nome/{nome}", method = RequestMethod.GET)
-	public ResponseEntity<List<CasaShow>> todasCasa = 
-	
-	public List<CasaShow> pesquisar(String casa){
-		return casasRepository.findByCasaContaining(casa);
+	@RequestMapping (value ="/nome/{casa}", method = RequestMethod.GET)
+	public ResponseEntity<List<CasaShow>> pesquisar(@PathVariable("casa")String casa){
+		return ResponseEntity.status(HttpStatus.OK).body(casasService.pesquisar(casa));
 	}
-	
 
 	
-
 }
